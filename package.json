@@ -1,0 +1,6 @@
+{
+  "type":"module",
+  "dependencies": {
+    "prando": "^6.0.1"
+  }
+}
