@@ -1,3 +1,4 @@
+import fs from "fs";
 import Direction from "./Direction.js";
 
 class Cell {
@@ -216,6 +217,15 @@ class Maze {
       JSONRepresentation.rows.push(rowArray);
     }
     return JSONRepresentation;
+  }
+
+  writeJSON() {
+    const data = JSON.stringify(this.toJSON());
+    try {
+      fs.writeFileSync("mazeData.json", data, "utf-8");
+    } catch(e) {
+      console.error(e);
+    }
   }
 }
 
