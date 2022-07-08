@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import mazeGenerator from 'lib/mazeGenerator';
 import { MazeDataService } from '../Services/MazeData.service';
+import { LoadingService } from '../Services/Spinner..service';
 
 @Component({
   selector: 'app-home',
@@ -9,21 +10,26 @@ import { MazeDataService } from '../Services/MazeData.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  loading: boolean = false;
-  constructor(private mazeDataService: MazeDataService, private router: Router) {}
+  loading = this.loader.loading$;
+  constructor(
+    private mazeDataService: MazeDataService,
+    private router: Router,
+    public loader: LoadingService
+  ) {}
 
   ngOnInit(): void {}
 
-  toggleLoading() {
-    this.loading = !this.loading;
-  };
-
-  generateMaze(x: number, y: number): any {
-    this.toggleLoading();
-    const maze = mazeGenerator({ width: x, height: y });
-    console.log(maze);
-    console.log(maze.toString());
-    this.mazeDataService.setData(maze);
-    this.router.navigate(['/play']);
+  async generateMaze(x: number, y: number): Promise<boolean> {
+    // this.loader.show();
+    return new Promise((resolve) => {
+      const maze = mazeGenerator({ width: x, height: y });
+      console.log(maze);
+      console.log(maze.toString());
+      resolve(maze);
+    }).then((maze) => {
+      this.mazeDataService.setData(maze);
+      return true;
+    });
+    // this.router.navigate(['/play']);
   }
 }

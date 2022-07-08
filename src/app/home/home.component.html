@@ -1,8 +1,9 @@
 <div id="home">
-    <div id="loading" *ngIf="loading">
+    <ng-container id="loading" *ngIf="loading | async">
+        <div class="overlay"></div>
         <app-spinner></app-spinner>
-    </div>
-    <button type="button" (click)="generateMaze(1000,1000)">Easy</button>
+    </ng-container>
+    <button type="button" (click)="loader.show();generateMaze(1000,1000)">Easy</button>
     <button type="button">Medium</button>
     <button type="button">Hard</button>
     <button type="button" routerLink="/player" routerLinkActive="active" ariaCurrentWhenActive="page">Custom

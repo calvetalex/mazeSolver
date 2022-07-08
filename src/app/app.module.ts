@@ -7,8 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { PlayerComponent } from './player/player.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { DisplayMazeComponent } from './display-maze/display-maze.component';
-import { MazeDataService } from './Services/MazeData.service';
 import { SpinnerComponent } from './spinner/spinner.component';
+
+import { MazeDataService } from './Services/MazeData.service';
+import { LoadingService } from './Services/Spinner..service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [MazeDataService],
+  providers: [MazeDataService, LoadingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
