@@ -19,17 +19,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async generateMaze(x: number, y: number): Promise<boolean> {
-    // this.loader.show();
-    return new Promise((resolve) => {
-      const maze = mazeGenerator({ width: x, height: y });
-      console.log(maze);
-      console.log(maze.toString());
-      resolve(maze);
+  async generateMaze(x: number, y: number): Promise<void> {
+    return new Promise(async (resolve) => {
+      let maze = {};
+      setTimeout(() => {
+        maze = mazeGenerator({ width: x, height: y });
+        console.log(maze);
+        console.log(maze.toString());
+        resolve(maze);
+      }, 1000);
     }).then((maze) => {
       this.mazeDataService.setData(maze);
-      return true;
+      this.router.navigate(['/play']);
     });
-    // this.router.navigate(['/play']);
   }
 }
