@@ -3,9 +3,9 @@
         <div class="overlay"></div>
         <app-spinner></app-spinner>
     </ng-container>
-    <button type="button" (click)="loader.show();generateMaze(1000,1000)">Easy</button>
-    <button type="button">Medium</button>
-    <button type="button">Hard</button>
+    <button type="button" (click)="loader.show();generateMaze(10,10)">Easy</button>
+    <button type="button" (click)="loader.show();generateMaze(100,100)">Medium</button>
+    <button type="button" (click)="loader.show();generateMaze(1000,1000)">Hard</button>
     <button type="button" routerLink="/player" routerLinkActive="active" ariaCurrentWhenActive="page">Custom
         Player</button>
     <button type="button" routerLink="/options" routerLinkActive="active" ariaCurrentWhenActive="page">Options</button>
