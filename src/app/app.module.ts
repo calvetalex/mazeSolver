@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { PlayerComponent } from './player/player.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { DisplayMazeComponent } from './display-maze/display-maze.component';
+import { MazeDataService } from './Services/MazeData.service';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,14 @@ import { DisplayMazeComponent } from './display-maze/display-maze.component';
     HomeComponent,
     PlayerComponent,
     ParametersComponent,
-    DisplayMazeComponent
+    DisplayMazeComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MazeDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

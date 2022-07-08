@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div id="home">
+    <div id="loading" *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <button type="button" (click)="generateMaze(1000,1000)">Easy</button>
+    <button type="button">Medium</button>
+    <button type="button">Hard</button>
+    <button type="button" routerLink="/player" routerLinkActive="active" ariaCurrentWhenActive="page">Custom
+        Player</button>
+    <button type="button" routerLink="/options" routerLinkActive="active" ariaCurrentWhenActive="page">Options</button>
+</div>
