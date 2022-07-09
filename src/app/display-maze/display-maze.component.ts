@@ -33,7 +33,13 @@ export class DisplayMazeComponent implements OnInit {
     const sideCell = 500 / this.maze.cells.length;
     for (let row = 0; row < this.maze.cells.length; row++) {
       for (let col = 0; col < this.maze.cells[row].length; col++) {
-        const square = new Cell(this.ctx, this.maze.cells[row][col].left, this.maze.cells[row][col].right, this.maze.cells[row][col].up, this.maze.cells[row][col].down);
+        const square = new Cell(
+          this.ctx,
+          this.maze.cells[row][col].walls.left,
+          this.maze.cells[row][col].walls.right,
+          this.maze.cells[row][col].walls.up,
+          this.maze.cells[row][col].walls.down
+        );
         square.draw(col, row, sideCell);
       }
     }
