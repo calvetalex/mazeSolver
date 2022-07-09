@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import mazeGenerator from "lib/mazeGenerator";
-
 
 @Injectable({
   providedIn: 'root',
